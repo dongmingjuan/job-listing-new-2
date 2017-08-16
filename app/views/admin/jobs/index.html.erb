@@ -13,9 +13,17 @@
     <tbody>
       <% @jobs.each do |job| %>
         <tr>
-          <td><%= job.title %></td>
+          <td>
+            <%= render_job_status(job)%>
+            <%= job.title %>
+          </td>
           <td><%= job.description %></td>
           <td>
+            <% if job.is_hidden %>
+               <%= link_to("Publish", publish_admin_job_path(job), method: :post, class: "btn btn-sm btn-default")%>
+            <% else %>
+                 <%= link_to("Hide", hide_admin_job_path(job), method: :post, class: "btn btn-sm btn-default" )%>
+            <% end %>
             <%= link_to("Edit", edit_admin_job_path(job), class: "btn btn-sm btn-default pull-right ")%>
             <%= link_to("Delete", admin_job_path(job), class: "btn btn-sm btn-default pull-right", method: :delete, data: { confirm: "Are you sure?"} )%>
           </td>

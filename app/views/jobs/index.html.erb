@@ -1,10 +1,19 @@
 <div class="col-md-12">
+ <span>
+  <%= link_to("按薪资下限排序", jobs_path(:order => "by_lower_bound"))%>
+  <hr>
+  <%= link_to("按薪资上限排序", jobs_path(:order => "by_upper_bound"))%>
+  <hr>
+  <%= link_to("时间顺序", jobs_path) %>
+</span>
   <table class="table table-bordered">
     <thead>
       <tr>
         <th>Title</th>
         <th>Description</th>
-      
+        <th>薪资下限</th>
+        <th>薪资上限</th>
+
       </tr>
     </thead>
     <tbody>
@@ -12,6 +21,8 @@
         <tr>
           <td><%= link_to(job.title, job_path(job)) %></td>
           <td><%= job.description %></td>
+          <td><%= job.wage_lower_bound %></td>
+          <td><%= job.wage_upper_bound %></td>
         </tr>
       <% end %>
     </tbody>
