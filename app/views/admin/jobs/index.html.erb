@@ -1,0 +1,26 @@
+<div class="col-md-12">
+  <div class="group">
+    <%= link_to("New Job", new_admin_job_path, class: "btn btn-sm btn-primary pull-right") %>
+  </div>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Description</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @jobs.each do |job| %>
+        <tr>
+          <td><%= job.title %></td>
+          <td><%= job.description %></td>
+          <td>
+            <%= link_to("Edit", edit_admin_job_path(job), class: "btn btn-sm btn-default pull-right ")%>
+            <%= link_to("Delete", admin_job_path(job), class: "btn btn-sm btn-default pull-right", method: :delete, data: { confirm: "Are you sure?"} )%>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
