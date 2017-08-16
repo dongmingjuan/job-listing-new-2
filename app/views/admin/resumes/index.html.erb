@@ -1,0 +1,19 @@
+<div class="col-md-12">
+  <% @resumes.each do |resume| %>
+    <div class="panel panel-default">
+      <div class=" panel-heading">
+        <%= resume.user.email%>
+      </div>
+      <div class="panel-body">
+        <%= resume.content %>
+        <hr>
+        <% if resume.attachment.present? %>
+           <i class="fa fa-paperclip"></i>
+           <%= link_to("Download", resume.attachment_url)%>
+        <% else %>
+            No Attachment
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>
