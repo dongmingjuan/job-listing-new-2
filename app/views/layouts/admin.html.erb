@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>JobListing2</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-3">
+          <%= link_to("Jobs", admin_jobs_path, class: "btn btn-md btn-warning pull-left")%>
+        </div>
+      </div>
+      <%= yield %>
+    </div>
+
+  </body>
+
+</html>
